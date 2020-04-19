@@ -1,0 +1,87 @@
+#Azure Credentails read from Environment Variables
+#Example :
+#export TF_VAR_SUBSCRIPTION_ID=
+#export TF_VAR_CLIENT_ID=
+#export TF_VAR_CLIENT_SECRET=
+#export TF_VAR_TENANT_ID=
+
+variable "SUBSCRIPTION_ID" {}
+variable "CLIENT_ID" {}
+variable "CLIENT_SECRET" {}
+variable "TENANT_ID" {}
+
+
+variable "project" {
+  default = "bihar-dev-edcr"
+}
+
+variable "env" {
+    default = "dev"
+}
+
+variable "location" {
+	default = "SouthIndia"
+}
+
+variable "az_cidr" {
+    description = "CIDR for the whole VPC"
+    default = "10.0.0.0/16"
+} 
+
+variable "dmz_cidrs" {
+    description = "CIDR for public subnet"
+    default = "10.0.1.0/24"
+}
+
+variable "ssh_public_key" {
+	default = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC7GwxvcXJaAc8tOANYa8JuLc+vw/updAomdssHc8xH+aeIGCpTuxlj/LIzyeY1Fu4tgF2CvJAqmD6yMuXiRSTbZVgoVRLqMzRZQuT6dwpz4xWM4aJ8CUB2xNVZbmVHxo/eZ/E/0z9FKvA6aptbGjDIfAdsE0vassbv+ljJGAaclhKKyoJS1KHDQWWh7ufV4VREiU6s1SkjysSWgMaTWIVkHLVqvOMdgj/6s9JYUwY7iHks3uIArefVxbKMJt+TqjZFPWiKjBxjwNaFLuKLvxKeznvq06Nk5x+gjQf2y1K/HhTcFWDras9IQVwEfGOkG8Ahq9kOKT38G8a/oyw6K71v manju@manjunatha-laptop"
+}
+
+# Apache Loadbalancer
+variable "frontend" {
+  type    = "map"
+  default = {
+    count           = "1"
+    vm_size         = "Standard_B4ms"
+    volume_size     = "100"
+    admin_username  = "azureuser"
+    admin_password  = "uthoo8aht3air2Fe"
+  }
+}
+
+# Application Server 
+//variable "application" {
+//  type    = "map"
+//  default = {
+//    count             = "1"
+//    vm_size           = "Standard_B2ms"
+//    volume_size       = "50"
+//    admin_username    = "azureuser"
+//    admin_password    = "keiF5bui5sioPoh4"
+//  }
+//}
+
+//#Elasticsearch Server
+//variable "elasticsearch" {
+//  type    = "map"
+//  default = {
+//    count         	= "1"
+//    vm_size 	      = "Standard_B2ms"
+//    volume_size   	= "50"
+//    admin_username  = "azureuser"
+//    admin_password  = "Eewi6peiz2chechi"
+//  }
+//}
+
+#PostgreSQL Server
+variable "postgresql" {
+  type    = "map"
+  default = {
+    count         	= "1"
+    vm_size 	      = "Standard_F2s"
+    volume_size   	= "10"
+    version		  	  = "9.6"
+    admin_username	= "digitadmin"
+    admin_password	= "feci4ahG9wai4eiw"
+  }
+}
