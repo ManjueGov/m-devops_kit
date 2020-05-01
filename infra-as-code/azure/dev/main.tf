@@ -17,7 +17,7 @@ module "az_group" {
     ssh_public_key = var.ssh_public_key
     
     frontend = var.frontend
-//    application = "${var.application}"
-//    elasticsearch = "${var.elasticsearch}"
+    application = "${var.application}"
+    elasticsearch = "${var.elasticsearch}"
     postgresql = var.postgresql
 }

@@ -9,6 +9,6 @@ variable "ssh_public_key" {}
 
 
 variable "frontend" { type = "map" }
-//variable "application" { type = "map" }
+variable "application" { type = "map" }
 variable "postgresql" { type = "map" }
-//variable "elasticsearch" { type = "map" }
+variable "elasticsearch" { type = "map" }

@@ -12,7 +12,7 @@ variable "TENANT_ID" {}
 
 
 variable "project" {
-  default = "bihar-dev-edcr"
+  default = ""
 }
 
 variable "env" {
@@ -34,7 +34,7 @@ variable "dmz_cidrs" {
 }
 
 variable "ssh_public_key" {
-	default = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC7GwxvcXJaAc8tOANYa8JuLc+vw/updAomdssHc8xH+aeIGCpTuxlj/LIzyeY1Fu4tgF2CvJAqmD6yMuXiRSTbZVgoVRLqMzRZQuT6dwpz4xWM4aJ8CUB2xNVZbmVHxo/eZ/E/0z9FKvA6aptbGjDIfAdsE0vassbv+ljJGAaclhKKyoJS1KHDQWWh7ufV4VREiU6s1SkjysSWgMaTWIVkHLVqvOMdgj/6s9JYUwY7iHks3uIArefVxbKMJt+TqjZFPWiKjBxjwNaFLuKLvxKeznvq06Nk5x+gjQf2y1K/HhTcFWDras9IQVwEfGOkG8Ahq9kOKT38G8a/oyw6K71v manju@manjunatha-laptop"
+	default = ""
 }
 
 # Apache Loadbalancer
@@ -49,29 +49,29 @@ variable "frontend" {
   }
 }
 
-# Application Server 
-//variable "application" {
-//  type    = "map"
-//  default = {
-//    count             = "1"
-//    vm_size           = "Standard_B2ms"
-//    volume_size       = "50"
-//    admin_username    = "azureuser"
-//    admin_password    = "keiF5bui5sioPoh4"
-//  }
-//}
+# Application Server
+variable "application" {
+  type    = "map"
+  default = {
+    count             = "1"
+    vm_size           = "Standard_B2ms"
+    volume_size       = "50"
+    admin_username    = "azureuser"
+    admin_password    = "keiF5bui5sioPoh4"
+  }
+}
 
 //#Elasticsearch Server
-//variable "elasticsearch" {
-//  type    = "map"
-//  default = {
-//    count         	= "1"
-//    vm_size 	      = "Standard_B2ms"
-//    volume_size   	= "50"
-//    admin_username  = "azureuser"
-//    admin_password  = "Eewi6peiz2chechi"
-//  }
-//}
+variable "elasticsearch" {
+  type    = "map"
+  default = {
+    count         	= "1"
+    vm_size 	      = "Standard_B2ms"
+    volume_size   	= "50"
+    admin_username  = "azureuser"
+    admin_password  = "Eewi6peiz2chechi"
+  }
+}
 
 #PostgreSQL Server
 variable "postgresql" {
